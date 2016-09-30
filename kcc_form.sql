@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- 생성 시간: 16-09-28 16:47
+-- 생성 시간: 16-09-30 13:46
 -- 서버 버전: 10.1.16-MariaDB
 -- PHP 버전: 5.6.24
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 데이터베이스: `kcc`
+-- 데이터베이스: `kcc_form`
 --
 
 -- --------------------------------------------------------
@@ -27,12 +27,13 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `kcc_form` (
+  `idx` int(11) NOT NULL,
   `name_Ko` varchar(225) NOT NULL,
   `name_En` varchar(225) NOT NULL,
   `birth_Year` int(100) NOT NULL,
   `birth_Month` int(100) NOT NULL,
   `birth_Day` int(100) NOT NULL,
-  `id` varchar(225) NOT NULL,
+  `id` varchar(255) NOT NULL,
   `pw` varchar(225) NOT NULL,
   `pw_Re` varchar(225) NOT NULL,
   `number_1` int(100) NOT NULL,
@@ -75,8 +76,17 @@ CREATE TABLE `kcc_form` (
 -- 테이블의 인덱스 `kcc_form`
 --
 ALTER TABLE `kcc_form`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`idx`);
 
+--
+-- 덤프된 테이블의 AUTO_INCREMENT
+--
+
+--
+-- 테이블의 AUTO_INCREMENT `kcc_form`
+--
+ALTER TABLE `kcc_form`
+  MODIFY `idx` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

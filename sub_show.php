@@ -27,10 +27,9 @@
             echo "PW : ".$row['pw'];
             
             if($row['pw'] == $row['pw_Re']){
-                echo "<span class='pw_re'>	
-&#40; 비밀번호 확인 완료&#41;</span>";
+                echo "<span class='pw_re'> &#40; 비밀번호 확인 완료&#41;</span><br>";
             } else if($row['pw'] != $row['pw_Re']) {
-                echo "<span class='pw_re'>&#40; 비밀번호 확인이 안됨&#41;</span>";
+                echo "<span class='pw_re'>&#40; 비밀번호 확인이 안됨&#41;</span><br>";
             } else if(!isset($row['pw']))
             
             echo "<br>";

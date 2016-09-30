@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <title>KCC</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 </head>
 <body>
     <div id="wrap">
@@ -73,7 +72,7 @@
              <table class="table">
                     <tr>
                         <td>한글이름&nbsp;<span class="star">*</span></td>
-                        <td><input type="text" name="name_Ko"></td>
+                        <td><input type="text" name="name_Ko" required></td>
                     </tr>
                     <tr>
                         <td>영문이름</td>
@@ -90,21 +89,21 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>아이디&nbsp;<span class="star">*</span></td>
-                        <td><input type="text" style="margin-left:16px;" name="id"></td>
+                        <td>아이디&nbsp;<span class="star" >*</span></td>
+                        <td><input type="text" style="margin-left:16px;" name="id" required></td>
                         <td><input type="button" class="check" value="중복확인"></td>
                         <td><span class="ex">사이트내에서 표시되는 본인정보이며 저장 후 수정하실 수 없습니다.</span></td>
                     </tr>
                     <tr>
                         <td>비밀번호&nbsp;<span class="star">*</span></td>
-                        <td><input type="text" name="pw"></td>
+                        <td><input type="text" name="pw" required></td>
                         <td><span class="ex">&nbsp; 영문 소문자,숫자 포함 4자리 이상 10자리 이하입니다.</span></td>
                     </tr>
                     <tr>
                         <td>비밀번호 확인&nbsp;<span class="star">*</span></td>
-                        <td><input type="text" name="pw_Re" style="margin-left:-37px;"></td>
+                        <td><input type="text" name="pw_Re" style="margin-left:-37px;" required></td>
                         <td><span class="ex">&nbsp; 비밀번호를 한번 더 입력하세요</span></td>
-                    </tr>
+                 </tr>
                     <tr>
                         <td id="call">전화번호</td>
                         <td><select name="number_1">
@@ -113,7 +112,7 @@
                             <option value="3">032</option>
                             <option value="4">033</option>
                         </select>&nbsp;-</td>
-                        <td><input type="text" maxlength="4" style="width:60px;" name="number_2">&nbsp;-</td>
+                        <td><input type="text" maxlength="4" style="width:60px;" name="number_2" >&nbsp;-</td>
                         <td><input type="text" maxlength="4" name="number_3" style="width:60px;"></td>
                         <td><span class="ex">&nbsp; 예약시 휴대폰으로 문자가 발송됩니다.</span></td>
                     </tr>
@@ -127,8 +126,8 @@
                             <option value="5">018</option>
                             <option value="6">019</option>
                         </select>&nbsp;-</td>
-                        <td><input type="text" name="phonNum_2" maxlength="4" style="width:60px;">&nbsp;-</td>
-                        <td><input type="text" name="phonNum_3" maxlength="4" style="width:60px;"></td>
+                        <td><input type="text" name="phonNum_2" maxlength="4" style="width:60px;" required>&nbsp;-</td>
+                        <td><input type="text" name="phonNum_3" maxlength="4" style="width:60px;" required></td>
                     </tr>
                     <tr>
                             <td id="sms">SNS 수신여부&nbsp;<span class="star">*</span></td>
@@ -163,7 +162,7 @@
                     <table class="table2">
                         <tr>
                             <td>직장명&nbsp;<span class="star">*</span></td>
-                            <td><input type="text" name="work_name" style="margin-left:14px;"></td>
+                            <td><input type="text" name="work_name" style="margin-left:14px;" required></td>
                         </tr>
                         <tr>
                             <td>직종</td>
@@ -171,7 +170,7 @@
                         </tr>
                         <tr>
                             <td>직위&nbsp;<span class="star">*</span></td>
-                            <td><input type="text" name="work_spot" style="margin-left:30px;"></td>
+                            <td><input type="text" name="work_spot" style="margin-left:30px;" required></td>
                         </tr>
                         <tr>
                             <td id="workpost">직장 우편번호<span class="star">*</span></td>
@@ -194,8 +193,8 @@
                             <option value="5">018</option>
                             <option value="6">019</option>
                         </select>&nbsp;-</td>
-                        <td><input type="text" name="work_number2" maxlength="4" style="width:60px;">&nbsp;-</td>
-                        <td><input type="text" name="work_number3" maxlength="4" style="width:60px;"></td>
+                        <td><input type="text" name="work_number2" maxlength="4" style="width:60px;" required>&nbsp;-</td>
+                        <td><input type="text" name="work_number3" maxlength="4" style="width:60px;" required></td>
                         </tr>
                         <tr>
                         <td id="fax">팩스번호</td>
@@ -231,10 +230,9 @@
                 <div id="line3"></div>
                 <div id="btn">
                     <input type="reset">
-                    <input type="submit" onclick="checkForm()">
-                    
+                    <input type="submit">
                 </div>
-            </form>
+                </form>
             </div>
         </div>
         <div id="footer">
@@ -272,8 +270,5 @@
             for(var $a=1; $a<=31; $a++){
                 $(".day_wed").append("<option value='"+$a+"'>"+$a+"</option>");
             }
-    function checkForm(){
-        
-    }
         </script>
 </html>

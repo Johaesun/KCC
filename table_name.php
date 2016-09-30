@@ -5,4 +5,7 @@ VALUES('{$_POST['name_Ko']}','{$_POST['name_En']}','{$_POST['birth_Year']}','{$_
 
 $result = $pdo -> query($insert);
 echo "<script>location.href='sub_show.php';</script>";
+/*$pattern_mail = "/([a-zA-Z0-9_-]+)@([a-zA-Z0-9_.-]{3})/";
+$email = {$_POST['email']};
+echo preg_reolace_callback($pattern,"callback_func",$email);*/
 ?>
