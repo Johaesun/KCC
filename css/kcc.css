@@ -37,10 +37,9 @@ body{background-image: url('/img/DSDSD.PNG')}
 #in>h4{ color: #5a5a5a;}
 .table{margin-top:10px;}
 td{width: 150px;display: inline; margin-left:10px; font-size: 15px; color: #6d6d6d; font-family:'나눔고딕',NanumGothic,Tahoma,sans-serif;}
-td:nth-child(1){padding-right:35px;}
 input{background-color: #f3f3f3; border:1px solid #E1E2E3; } select{background-color: #f3f3f3;}
 #call{padding-right:49px;} #cellphone{padding-right: 20px;} 
-#sms{padding-right: 1px;} #post{padding-right:39px;}
+#sms{padding-right: 1px;}
 .ex{color:#6d6d6d; font-size:0.5px;}
 #line2{margin-top: 20px; border-top: 3px solid #e5e5e5;}
 .table2{margin-top: 20px;}

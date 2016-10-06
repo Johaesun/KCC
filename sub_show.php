@@ -9,13 +9,14 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <style>
-        #wrap{background: pink; margin-bottom: 20px; color: #fff;}
-        .pw_re{font-size: 0.7em; font-weight: bold}
+        * { margin: 0; padding: 0; }
+        #wrap{background: pink; border-bottom: 3px solid #ddd;  color: #fff; padding-bottom: 10px; }
+        .pw_re{font-size: 0.7em; font-weight: bold; }
     </style>
 </head>
 <body>
 <?php
-    
+    print phonNum_1;
     while($row = $result->fetch()){  
             $name_K=$row['name_Ko'];
             echo "<div id=wrap>";
@@ -34,11 +35,11 @@
             
             echo "<br>";
             echo "전화번호 : ".$row['number_1']."-".$row['number_2']."-".$row['number_3']."<br>";
-            echo "핸드폰번호 : ".$row['phonNum_1']."-".$row['phonNum_2']."-".$row['phonNum_3']."</br>";
+            echo "핸드폰번호 : ".$row['phonNum_1']."</br>";
             echo "SNS 수신동의 여부 ".$row['answer']."</br>";
             echo "e-mail : ".$row['email']."</br>";
             echo "자택 우편번호 ".$row['home_post']."-".$row['home_post2']."<br>";
-            echo "자택 주소 ".$row['home_address1']." ".$row['home_address2']."<br>";
+            echo "자택 주소 ".$row['home_address1']."<br>";
             echo "DM발송처 : ".$row['stay']."<br>";
             echo "직장명 ".$row['work_name']."<br>";
             echo "직종 ".$row['work_kinds']."<br>";

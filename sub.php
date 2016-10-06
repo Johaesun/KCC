@@ -4,7 +4,7 @@
 <head>
     <link rel="stylesheet" href="css/kcc.css">
     <meta charset="UTF-8">
-    <title>KCC</title>
+    <title>20602조혜선</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
@@ -118,16 +118,16 @@
                     </tr>
                     <tr>
                         <td id="cellphone">휴대폰번호&nbsp;<span class="star">*</span></td>
-                         <td><select name="phonNum_1">
-                            <option value="1">010</option>
-                            <option value="2">011</option>
-                            <option value="3">016</option>
-                            <option value="4">017</option>
-                            <option value="5">018</option>
-                            <option value="6">019</option>
+                         <td><select name="phonN_1">
+                            <option value="010">010</option>
+                            <option value="011">011</option>
+                            <option value="016">016</option>
+                            <option value="017">017</option>
+                            <option value="018">018</option>
+                            <option value="019">019</option>
                         </select>&nbsp;-</td>
-                        <td><input type="text" name="phonNum_2" maxlength="4" style="width:60px;" required>&nbsp;-</td>
-                        <td><input type="text" name="phonNum_3" maxlength="4" style="width:60px;" required></td>
+                        <td><input type="text" name="phonN_2" maxlength="4" style="width:60px;" required>&nbsp;-</td>
+                        <td><input type="text" name="phonN_3" maxlength="4" style="width:60px;" required></td>
                     </tr>
                     <tr>
                             <td id="sms">SNS 수신여부&nbsp;<span class="star">*</span></td>
@@ -141,14 +141,12 @@
                     </tr>            
                     <tr>
                         <td id="post">자택 우편번호&nbsp;<span class="star">*</span></td>
-                        <td><input type="text" name="home_post" style="width:40px;margin-left:-40px;">&nbsp;-</td>
-                        <td><input type="text" name="home_post2" style="width:40px;"></td>
-                        <td><input type="button" value="우편번호 찾기"></td>
+                        <td><input type="text" id="sample6_postcode" placeholder="우편번호" name="home_post" required></td>
+                        <td><input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"></td>
                     </tr>
                     <tr>
                         <td>자택주소&nbsp;<span class="star">*</span></td>
-                        <td><input type="text" name="home_address1" style="width:300px;"></td>
-                        <td><br/><input type="text" name="home_address2" style="width:300px; margin-left:131px;"></td>
+                        <td><input type="text" name="home_address1" id="sample6_address" placeholder="주소"><input type="text" id="sample6_address2" style="margin-left:10px;"  placeholder="상세주소"></td>
                     </tr>
                     <tr>
                         <td>DM발송처<span class="star">*</span></td>
@@ -162,7 +160,7 @@
                     <table class="table2">
                         <tr>
                             <td>직장명&nbsp;<span class="star">*</span></td>
-                            <td><input type="text" name="work_name" style="margin-left:14px;" required></td>
+                            <td><input type="text" name="work_name" style="margin-left:14px;" ></td>
                         </tr>
                         <tr>
                             <td>직종</td>
@@ -170,18 +168,16 @@
                         </tr>
                         <tr>
                             <td>직위&nbsp;<span class="star">*</span></td>
-                            <td><input type="text" name="work_spot" style="margin-left:30px;" required></td>
+                            <td><input type="text" name="work_spot" style="margin-left:30px;" ></td>
                         </tr>
                         <tr>
                             <td id="workpost">직장 우편번호<span class="star">*</span></td>
-                            <td><input type="text" name="work_post1" style="width:40px;">&nbsp;-</td>
-                            <td><input type="text" name="work_post2" style="width:40px;"></td>
-                            <td><input type="button" class="find_post" value="우편번호 찾기"></td>
+                            <td><input type="text" id="sample6_postcode" placeholder="우편번호" name="work_post1"></td>
+                            <td><input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"></td>
                         </tr>
                         <tr>
                             <td>직장주소<span class="star">*</span></td>
-                            <td><input type="text" name="work_address1" style="width:300px; margin-left:4px;"></td>
-                            <td><br/><input type="text" name="work_address2" style="width:300px; margin-left:129px;"></td>
+                            <td><input type="text" id="sample6_address" placeholder="주소" name="work_address1"><input type="text" name="work_address2" style="margin-left:10px;" ></td>
                         </tr>
                         <tr>
                             <td id="number">직장전화번호<span class="star">*</span></td>
@@ -193,8 +189,8 @@
                             <option value="5">018</option>
                             <option value="6">019</option>
                         </select>&nbsp;-</td>
-                        <td><input type="text" name="work_number2" maxlength="4" style="width:60px;" required>&nbsp;-</td>
-                        <td><input type="text" name="work_number3" maxlength="4" style="width:60px;" required></td>
+                        <td><input type="text" name="work_number2" maxlength="4" style="width:60px;">&nbsp;-</td>
+                        <td><input type="text" name="work_number3" maxlength="4" style="width:60px;"></td>
                         </tr>
                         <tr>
                         <td id="fax">팩스번호</td>
@@ -245,6 +241,51 @@
             </div>
         </div>
     </div>
+    
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script>
+    function sample6_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var fullAddr = ''; // 최종 주소 변수
+                var extraAddr = ''; // 조합형 주소 변수
+
+                // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    fullAddr = data.roadAddress;
+
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    fullAddr = data.jibunAddress;
+                }
+
+                // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+                if(data.userSelectedType === 'R'){
+                    //법정동명이 있을 경우 추가한다.
+                    if(data.bname !== ''){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있을 경우 추가한다.
+                    if(data.buildingName !== ''){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+                    fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample6_postcode').value = data.zonecode; //5자리 새우편번호 사용
+                document.getElementById('sample6_address').value = fullAddr;
+
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById('sample6_address2').focus();
+            }
+        }).open();
+    }
+</script>
 </body>
 <script>
             var name_ko=$("input[name=name_Ko]")
