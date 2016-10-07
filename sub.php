@@ -68,7 +68,7 @@
                 <h5><span id="s">상세정보 입력</span> &nbsp;<span class="star">*</span>표시는 필수입력 항목입니다.</h5>
             </div>
             <div id="put">
-            <form action="table_name.php" name="sub" method="post">
+            <form action="table_name.php" class="form" name="sub" method="post">
              <table class="table">
                     <tr>
                         <td>한글이름&nbsp;<span class="star">*</span></td>
@@ -241,7 +241,8 @@
             </div>
         </div>
     </div>
-    
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>  
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
     function sample6_execDaumPostcode() {
@@ -288,7 +289,8 @@
 </script>
 </body>
 <script>
-            var name_ko=$("input[name=name_Ko]")
+            var name_ko=$("input[name=name_Ko]");
+            
             for(var $a=1900; $a<=2016; $a++){
                 $(".year").append("<option value='"+$a+"'>"+$a+"</option>");
             }
@@ -311,5 +313,7 @@
             for(var $a=1; $a<=31; $a++){
                 $(".day_wed").append("<option value='"+$a+"'>"+$a+"</option>");
             }
+    });
+    
         </script>
 </html>
