@@ -220,7 +220,7 @@
                             </select>&nbsp;일
                         </td>
                         </tr>
-                    </table>
+                    </table> 
                     
                 </div>
                 <div id="line3"></div>
